@@ -197,7 +197,7 @@ class RGCNConv(MessagePassing):
             edge_type = edge_index.storage.value()
         assert edge_type is not None
 
-        # propagate_type: (x: Tensor, edge_type_ptr: OptTensor)
+        # propagate_type: (x: Tensor, edge_type_attr: OptTensor)
         out = torch.zeros(x_r.size(0), self.out_channels, device=x_r.device)
 
         weight = self.weight

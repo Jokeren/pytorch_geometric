@@ -15,10 +15,7 @@ parser.add_argument('--dataset', type=str, default='AIFB',
 args = parser.parse_args()
 
 # Trade memory consumption for faster computation.
-if args.dataset in ['AIFB', 'MUTAG']:
-    Conv = FastRGCNConv
-else:
-    Conv = RGCNConv
+Conv = RGCNConv
 
 path = osp.join(osp.dirname(osp.realpath(__file__)), '..', 'data', 'Entities')
 dataset = Entities(path, args.dataset)
